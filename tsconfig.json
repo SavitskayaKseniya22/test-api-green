@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "useDefineForClassFields": true,
+
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+
+        "jsx": "react-jsx",
+
+        "strict": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noFallthroughCasesInSwitch": true,
+
+        "noEmit": true,
+        "skipLibCheck": true,
+
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+
+        "forceConsistentCasingInFileNames": true,
+
+        "paths": {
+            "@/*": ["./src/*"],
+            "@app/*": ["./src/app/*"],
+            "@abstracts/*": ["./src/app/styles/abstracts/*"],
+            "@shared/*": ["./src/shared/*"],
+            "@pages/*": ["./src/pages/*"]
+        }
+    },
+
+    "include": ["src", "src/shared/api/supabase/database.types.ts"],
+
+    "exclude": ["node_modules", "dist"]
+}
