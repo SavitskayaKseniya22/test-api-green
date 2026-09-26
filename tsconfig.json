@@ -35,7 +35,7 @@
         }
     },
 
-    "include": ["src", "src/shared/api/supabase/database.types.ts"],
+    "include": ["src"],
 
     "exclude": ["node_modules", "dist"]
 }
