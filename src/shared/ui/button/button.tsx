@@ -3,7 +3,7 @@ import { Link, type LinkProps } from "react-router-dom";
 import clsx from "clsx";
 import styles from "./button.module.scss";
 
-type View = "primary" | "secondary" | "transparent";
+type View = "primary" | "secondary" | "tertiary" | "transparent";
 
 type Size = "small" | "medium";
 

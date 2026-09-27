@@ -6,7 +6,7 @@ import clsx from "clsx";
 interface LabeledInputProperties extends React.ComponentProps<"input"> {
     label?: string | ReactNode;
     errorMessage?: string;
-    type?: Extract<React.HTMLInputTypeAttribute, "text" | "password" | "number" | "email"> | undefined;
+    type?: Extract<React.HTMLInputTypeAttribute, "text" | "password" | "number" | "email" | "tel"> | undefined;
 }
 
 const Input = forwardRef<HTMLInputElement, LabeledInputProperties>(function Input(

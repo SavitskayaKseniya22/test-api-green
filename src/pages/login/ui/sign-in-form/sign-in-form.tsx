@@ -15,7 +15,7 @@ const stateMessages: Record<string, string> = {
     suspended: "На аккаунте действуют ограничения. Проверьте их в кабинете GREEN-API.",
 };
 
-export function SignInForm() {
+export default function SignInForm() {
     const dispatch = useDispatch();
     const [getStateInstance] = useLazyGetStateInstanceQuery();
     const [message, setMessage] = useState("");
@@ -65,8 +65,6 @@ export function SignInForm() {
             <Input
                 label={"idInstance"}
                 inputMode="numeric"
-                aria-invalid={!!errors.idInstance}
-                aria-describedby="instance-error"
                 errorMessage={errors.idInstance?.message}
                 {...register("idInstance")}
                 disabled={isSubmitting}
@@ -76,8 +74,6 @@ export function SignInForm() {
                 label={"apiTokenInstance"}
                 type="password"
                 autoComplete="off"
-                aria-invalid={!!errors.apiTokenInstance}
-                aria-describedby="token-error"
                 {...register("apiTokenInstance")}
                 errorMessage={errors.apiTokenInstance?.message}
                 disabled={isSubmitting}

@@ -50,6 +50,23 @@
     }
   }
 
+  &_tertiary {
+    color: #15603e;
+    cursor: pointer;
+    background-color: vars.$color-whatsapp-tertiary;
+
+    &:hover {
+      color: #17603e;
+      background-color: vars.$color-whatsapp-tertiary-hover;
+    }
+
+    &:active {
+      color: #17603e;
+      background-color: vars.$color-whatsapp-tertiary-hover;
+      transition: transform(scale(0.8));
+    }
+  }
+
   &_transparent {
     color: #000;
     cursor: pointer;

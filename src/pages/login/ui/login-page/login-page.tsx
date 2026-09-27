@@ -1,8 +1,8 @@
 import { CustomAnchorLink } from "@/shared/ui/link";
-import { SignInForm } from "../sign-in-form/sign-in-form";
+import SignInForm from "../sign-in-form/sign-in-form";
 import styles from "./login-page.module.scss";
 
-export function LoginPage() {
+export default function LoginPage() {
     return (
         <main className={styles.page}>
             <div className={styles.page__content}>

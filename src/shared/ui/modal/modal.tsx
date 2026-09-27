@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
 import styles from "./modal.module.scss";
+import { Button } from "../button";
 
 interface ModalProperties {
     open: boolean;
@@ -33,7 +34,6 @@ export function Modal({ open, onClose, title, children }: ModalProperties) {
         <dialog
             ref={dialogReference}
             className={styles.modal}
-            aria-labelledby={titleId}
             onCancel={event => {
                 event.preventDefault();
                 onClose();
@@ -42,9 +42,9 @@ export function Modal({ open, onClose, title, children }: ModalProperties) {
                 <>
                     <header className={styles.header}>
                         <h2 id={titleId}>{title}</h2>
-                        <button type="button" className={styles.close} onClick={onClose} aria-label="Закрыть окно">
+                        <Button type="button" view="transparent" className={styles.close} onClick={onClose}>
                             ×
-                        </button>
+                        </Button>
                     </header>
                     {children}
                 </>

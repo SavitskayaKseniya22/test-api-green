@@ -3,9 +3,11 @@
 $color-whatsapp-main: #25d366;
 $color-whatsapp-sub: #1daa61;
 $color-whatsapp-main-hover: #1b9a58;
+$color-whatsapp-tertiary: #d9fdd3;
+$color-whatsapp-tertiary-hover: #c6f4c7;
 $color-stroke: #f0f2f5;
-$color-stroke-50: color.mix(#d0d5dd, #fff, 50%);
-$color-stroke-25: color.mix(#d0d5dd, #fff, 25%);
+$color-stroke-50: color.mix($color-stroke, #fff, 50%);
+$color-stroke-25: color.mix($color-stroke, #fff, 25%);
 $color-stroke-hover: #e4e6e9;
 $color-error-100: #fee4e2;
 $color-error-300: #fda29b;
