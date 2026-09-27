@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { store } from "./app/store";
 import { router } from "./app/routes";
+import "@fontsource-variable/roboto";
 import "@app/styles/styles.scss";
 
 const root = ReactDOM.createRoot(document.querySelector("#root") as HTMLElement);
