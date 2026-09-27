@@ -1,10 +1,17 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
-import { MainPage } from "@/pages/main";
+import { PrivateRoute } from "./private-route";
+import { GuestRoute } from "./guest-route";
+import { RootLayout } from "./root-layout";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" errorElement={<div>Something happened</div>}>
-            <Route index element={<MainPage />} />
+        <Route path="/" element={<RootLayout />} errorElement={<div>Something happened</div>}>
+            <Route element={<PrivateRoute />}>
+                <Route index element={<>Main page</>} />
+            </Route>
+            <Route element={<GuestRoute />}>
+                <Route path="login" element={<>Login page</>} />
+            </Route>
             <Route path="*" element={<div>Page not found</div>} />
         </Route>,
     ),

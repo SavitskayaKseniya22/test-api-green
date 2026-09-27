@@ -4,13 +4,15 @@
     "private": true,
     "type": "module",
     "dependencies": {
+        "@hookform/resolvers": "^5.9.1",
         "@reduxjs/toolkit": "^2.12.0",
         "clsx": "^2.1.1",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
         "react-hook-form": "^7.46.2",
         "react-redux": "^9.3.0",
-        "react-router-dom": "^7.18.2"
+        "react-router-dom": "^7.18.2",
+        "zod": "^4.6.5"
     },
     "scripts": {
         "dev": "vite",

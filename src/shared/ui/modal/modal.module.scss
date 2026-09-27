@@ -1,0 +1,41 @@
+.modal {
+    width: min(440px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    padding: 24px;
+    margin: auto;
+    overflow: auto;
+    color: #172b26;
+    background: #fff;
+    border: 0;
+    border-radius: 16px;
+
+    &::backdrop {
+        background: rgb(0 0 0 / 40%);
+    }
+
+    :focus-visible {
+        outline: 2px solid #008069;
+        outline-offset: 3px;
+    }
+}
+
+.header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.close {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 8px;
+
+    &:hover {
+        background: #f0f2f5;
+    }
+}
