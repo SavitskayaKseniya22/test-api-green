@@ -1,0 +1,29 @@
+@use "@abstracts/variables" as vars;
+
+.link {
+  position: relative;
+  font-weight: 500;
+  color: inherit;
+  cursor: pointer;
+  transition: color 150ms;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: (" ");
+    background-color: vars.$color-whatsapp-main;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
+  &:hover {
+    color: vars.$color-whatsapp-main;
+  }
+}

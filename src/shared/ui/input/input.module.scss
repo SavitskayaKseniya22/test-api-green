@@ -1,0 +1,57 @@
+@use "@abstracts/variables" as vars;
+@use "@abstracts/mixins" as mx;
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+}
+
+.input__label {
+    font-size: 0.875rem;
+}
+
+.input__container {
+    display: flex;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 14px 2rem;
+    color: #000;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 9999px;
+    transition:
+        color 150ms,
+        background-color 150ms,
+        border-color 150ms;
+
+    &:has(input:disabled) {
+        color: vars.$color-text-light;
+        pointer-events: none;
+        background: vars.$color-stroke-25;
+        border: 1px solid #000;
+    }
+}
+
+.input__error {
+    @include mx.error-block;
+}
+
+.input__field {
+    flex-grow: 1;
+    min-width: 0;
+    padding: 0;
+
+    &::placeholder {
+        color: vars.$color-text-light;
+    }
+}
+
+.input__field,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: textfield;
+}

@@ -1,0 +1,82 @@
+@use "@abstracts/variables" as vars;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  white-space: nowrap;
+  cursor: poiner;
+  border-radius: 9999px;
+  transition:
+    color 150ms,
+    background-color 150ms,
+    transform 150ms;
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.2;
+  }
+
+  &_primary {
+    color: #000;
+    cursor: pointer;
+    background-color: vars.$color-whatsapp-main;
+    border: 1px solid #000;
+
+    &:hover {
+      color: #fff;
+      background-color: #000;
+    }
+
+    &:active {
+      color: #fff;
+      background-color: #000;
+    }
+  }
+
+  &_secondary {
+    cursor: pointer;
+    background-color: vars.$color-whatsapp-sub;
+
+    &:hover {
+      background-color: vars.$color-whatsapp-main-hover;
+    }
+
+    &:active {
+      background-color: vars.$color-whatsapp-main-hover;
+      transition: transform(scale(0.8));
+    }
+  }
+
+  &_transparent {
+    color: #000;
+    cursor: pointer;
+    background-color: transparent;
+
+    &:hover {
+      background-color: vars.$color-stroke;
+    }
+
+    &:active {
+      color: #fff;
+      background-color: vars.$color-stroke-hover;
+    }
+  }
+
+  &_small {
+    min-width: 2rem;
+    min-height: 2rem;
+    padding-inline: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &_medium {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding-inline: 1rem;
+    font-weight: 500;
+  }
+}
