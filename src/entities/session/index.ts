@@ -3,3 +3,4 @@ export type { SessionCredentials } from "./model/session-schema";
 export { sessionCredentialsSchema } from "./model/session-schema";
 export { sessionApi, useLazyGetStateInstanceQuery } from "./api/session-api";
 export { baseQueryWithSession } from "./api/base-query";
+export { selectCredentials } from "./model/session-slice";

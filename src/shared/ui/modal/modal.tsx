@@ -34,6 +34,7 @@ export function Modal({ open, onClose, title, children }: ModalProperties) {
         <dialog
             ref={dialogReference}
             className={styles.modal}
+            aria-labelledby={titleId}
             onCancel={event => {
                 event.preventDefault();
                 onClose();
@@ -42,7 +43,12 @@ export function Modal({ open, onClose, title, children }: ModalProperties) {
                 <>
                     <header className={styles.header}>
                         <h2 id={titleId}>{title}</h2>
-                        <Button type="button" view="transparent" className={styles.close} onClick={onClose}>
+                        <Button
+                            type="button"
+                            view="transparent"
+                            className={styles.close}
+                            onClick={onClose}
+                            aria-label="Закрыть">
                             ×
                         </Button>
                     </header>

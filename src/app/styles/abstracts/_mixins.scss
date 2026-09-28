@@ -1,9 +1,9 @@
 @use "@abstracts/variables" as vars;
 
 @mixin error-block {
-  display: flex;
-  padding: 0.5rem 1rem;
-  color: vars.$color-error-700;
-  background-color: vars.$color-error-100;
-  border-radius: 8px;
+    display: flex;
+    padding: 0.5rem 1rem;
+    color: vars.$color-error-700;
+    background-color: vars.$color-error-100;
+    border-radius: 8px;
 }

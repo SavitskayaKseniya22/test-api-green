@@ -1,17 +1,21 @@
 import { useModal } from "@/shared/ui/modal";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addChat, selectChat, selectChatPhones, selectActivePhone, selectMessages } from "../../model/chats-slice";
 import { logout } from "@/entities/session";
 import NewChatForm from "../new-chat-form/new-chat-form";
 import styles from "./main-page.module.scss";
 import { Button } from "@/shared/ui/button";
 import clsx from "clsx";
+import Chat from "../chat/chat";
+import { useReceiveMessages } from "../../model/use-receive-messages";
 
 export default function MainPage() {
+    const receiveError = useReceiveMessages();
     const { openModal, closeModal } = useModal();
     const dispatch = useDispatch();
-    const [chats, setChats] = useState<string[]>([]);
-    const [activeChat, setActiveChat] = useState<string | null>(null);
+    const chats = useSelector(selectChatPhones);
+    const activeChat = useSelector(selectActivePhone);
+    const messages = useSelector(selectMessages);
 
     const handleNewChat = () => {
         openModal({
@@ -19,8 +23,7 @@ export default function MainPage() {
             content: (
                 <NewChatForm
                     onCreate={phone => {
-                        setChats(previous => (previous.includes(phone) ? previous : [...previous, phone]));
-                        setActiveChat(phone);
+                        dispatch(addChat(phone));
                         closeModal();
                     }}
                 />
@@ -59,24 +62,32 @@ export default function MainPage() {
                             <p>Создайте первый чат по номеру телефона</p>
                         </div>
                     ) : (
-                        chats.map(phone => (
-                            <button
-                                key={phone}
-                                type="button"
-                                className={styles.page__chat}
-                                onClick={() => setActiveChat(phone)}>
-                                <span>
-                                    <span>{phone}</span>
-                                    <span>Пока нет сообщений</span>
-                                </span>
-                            </button>
-                        ))
+                        chats.map(phone => {
+                            const lastMessage = messages?.[phone]?.at(-1);
+                            return (
+                                <button
+                                    key={phone}
+                                    type="button"
+                                    className={styles.page__chat}
+                                    onClick={() => dispatch(selectChat(phone))}>
+                                    <span className={styles["page__chat-content"]}>
+                                        <span>{phone}</span>
+                                        <span className={styles.page__preview}>
+                                            {lastMessage
+                                                ? `${lastMessage.direction === "outgoing" ? "Вы: " : ""}${lastMessage.text}`
+                                                : "Пока нет сообщений"}
+                                        </span>
+                                    </span>
+                                </button>
+                            );
+                        })
                     )}
                 </div>
             </aside>
             <section className={styles.page__conversation}>
+                {receiveError && <p>{receiveError}</p>}
                 {activeChat ? (
-                    <></>
+                    <Chat key={activeChat} phone={activeChat} />
                 ) : (
                     <div className={styles.page__welcome}>
                         <h2>Ваши разговоры — здесь</h2>

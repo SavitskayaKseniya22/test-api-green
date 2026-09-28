@@ -5,6 +5,7 @@
 
 .page__profile {
     display: flex;
+    flex-shrink: 0;
     gap: 1rem;
     align-items: flex-end;
     justify-content: space-between;
@@ -15,7 +16,7 @@
 
 .page__sidebar {
     display: flex;
-    flex-grow: 1;
+    flex: 0 0 30%;
     flex-direction: column;
     min-width: 320px;
     max-width: 30%;
@@ -58,10 +59,26 @@
     }
 }
 
+.page__chat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.page__preview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: #667781;
+    white-space: nowrap;
+}
+
 .page__conversation {
     display: flex;
     flex-grow: 2;
     flex-direction: column;
+    min-width: 0;
     background-color: #f7f5f3;
 }
 

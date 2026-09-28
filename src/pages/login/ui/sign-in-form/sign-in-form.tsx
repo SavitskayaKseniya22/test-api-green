@@ -78,7 +78,7 @@ export default function SignInForm() {
                 errorMessage={errors.apiTokenInstance?.message}
                 disabled={isSubmitting}
             />
-            <Button type="submit" view="secondary">
+            <Button type="submit" view="secondary" disabled={isSubmitting}>
                 {isSubmitting ? "Проверяем подключение…" : "Подключиться"}
             </Button>
 

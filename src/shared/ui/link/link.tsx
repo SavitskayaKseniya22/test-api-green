@@ -23,6 +23,10 @@ export function CustomLink({
             {...properties}
             aria-disabled={disabled || undefined}
             tabIndex={disabled ? -1 : properties.tabIndex}
+            onClick={event => {
+                if (disabled) event.preventDefault();
+                else properties.onClick?.(event);
+            }}
             className={getClasses(className)}>
             {children}
         </Link>
@@ -37,9 +41,13 @@ export function CustomAnchorLink({ className, children, disabled = false, ...pro
     return (
         <a
             {...properties}
+            href={properties.href}
             aria-disabled={disabled || undefined}
             tabIndex={disabled ? -1 : properties.tabIndex}
-
+            onClick={event => {
+                if (disabled) event.preventDefault();
+                else properties.onClick?.(event);
+            }}
             className={getClasses(className)}>
             {children}
         </a>

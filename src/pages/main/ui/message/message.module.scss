@@ -1,0 +1,26 @@
+@use "@abstracts/variables" as vars;
+
+.message {
+    align-self: flex-start;
+    max-width: 80%;
+    padding: 0.5rem 1rem;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    background: #fff;
+    border-radius: 1rem;
+
+    &--outgoing {
+        align-self: flex-end;
+        background: #d9fdd3;
+    }
+
+    footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+        margin-top: 0.25rem;
+        font-size: 0.75;
+        color: vars.$color-text-light;
+    }
+}

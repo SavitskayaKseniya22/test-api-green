@@ -1,0 +1,38 @@
+@use "@abstracts/variables" as vars;
+@use "@abstracts/mixins" as mx;
+
+.field__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    margin: 1rem;
+    background: #fff;
+    border: 1px solid vars.$color-stroke;
+    border-radius: 1.5rem;
+}
+
+.field__input {
+    flex-grow: 1;
+    min-width: 0;
+    max-height: 160px;
+    overflow-y: auto;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+    outline: none;
+
+    &--placeholder {
+        &::before {
+            color: vars.$color-text-light;
+            pointer-events: none;
+            content: attr(data-placeholder);
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.field__error {
+    margin: 0.5rem 1rem 0;
+    color: vars.$color-error-500;
+}

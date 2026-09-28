@@ -6,16 +6,23 @@ import storage from "redux-persist/es/storage/session";
 import type { TypedUseSelectorHook } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
 import { sessionApi, sessionReducer } from "@/entities/session";
+import { chatApi, chatsReducer } from "@/pages/main";
 
-const rootReducer = combineReducers({ session: sessionReducer, [sessionApi.reducerPath]: sessionApi.reducer });
-const persistedReducer = persistReducer({ key: "root", storage, whitelist: ["session"] }, rootReducer);
+const rootReducer = combineReducers({
+    session: sessionReducer,
+    chats: chatsReducer,
+    [sessionApi.reducerPath]: sessionApi.reducer,
+    [chatApi.reducerPath]: chatApi.reducer,
+});
+
+const persistedReducer = persistReducer({ key: "root", storage, whitelist: ["session", "chats"] }, rootReducer);
 
 const store = configureStore({
     reducer: persistedReducer,
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
             serializableCheck: { ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER] },
-        }).concat(sessionApi.middleware),
+        }).concat(sessionApi.middleware, chatApi.middleware),
 });
 
 export const persistor = persistStore(store);

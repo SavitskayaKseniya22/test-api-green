@@ -44,7 +44,10 @@ export function CustomLinkAsButton({
             {...properties}
             aria-disabled={disabled || undefined}
             tabIndex={disabled ? -1 : properties.tabIndex}
-
+            onClick={event => {
+                if (disabled) event.preventDefault();
+                else properties.onClick?.(event);
+            }}
             className={getButtonClasses(view, size, className)}>
             {children}
         </Link>
@@ -67,8 +70,13 @@ export function CustomAnchorLinkAsButton({
     return (
         <a
             {...properties}
+            href={properties.href}
             aria-disabled={disabled || undefined}
             tabIndex={disabled ? -1 : properties.tabIndex}
+            onClick={event => {
+                if (disabled) event.preventDefault();
+                else properties.onClick?.(event);
+            }}
             className={getButtonClasses(view, size, className)}>
             {children}
         </a>
