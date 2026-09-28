@@ -3,6 +3,7 @@
 
 .field__inputs {
     display: flex;
+    flex-shrink: 0;
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
@@ -35,4 +36,18 @@
 .field__error {
     margin: 0.5rem 1rem 0;
     color: vars.$color-error-500;
+}
+
+@media (width <= 768px) {
+    .field__inputs {
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin: 8px 8px max(8px, env(safe-area-inset-bottom));
+    }
+
+    .field__input {
+        flex: 1;
+        max-height: 120px;
+        font-size: 16px;
+    }
 }

@@ -7,6 +7,7 @@
 }
 
 .chat__header {
+    flex-shrink: 0;
     padding: 16px 24px;
     background: #fff;
     border-bottom: 1px solid #dddcda;
@@ -20,4 +21,14 @@
     min-height: 0;
     padding: 1rem;
     overflow-y: auto;
+}
+
+@media (width <= 768px) {
+    .chat__header {
+        padding: 1rem;
+    }
+
+    .chat__messages {
+        padding: 1rem;
+    }
 }

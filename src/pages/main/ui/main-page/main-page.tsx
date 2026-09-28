@@ -32,8 +32,13 @@ export default function MainPage() {
     };
 
     return (
-        <main className={styles.page}>
+        <main className={styles.page} data-chat-open={activeChat !== null}>
             <aside className={styles.page__profile}>
+                <div className={styles.page__back}>
+                    <Button view="tertiary" size="small" onClick={() => dispatch(selectChat(null))}>
+                        Обратно к чатам
+                    </Button>
+                </div>
                 <Button
                     type="button"
                     view="transparent"
@@ -84,13 +89,14 @@ export default function MainPage() {
                     )}
                 </div>
             </aside>
-            <section className={styles.page__conversation}>
+            <section
+                className={clsx(styles.page__conversation, { [styles[`page__conversation--empty`]]: !activeChat })}>
                 {receiveError && <p>{receiveError}</p>}
                 {activeChat ? (
                     <Chat key={activeChat} phone={activeChat} />
                 ) : (
                     <div className={styles.page__welcome}>
-                        <h2>Ваши разговоры — здесь</h2>
+                        <h2>Ваши разговоры</h2>
                         <p>
                             Выберите чат слева или создайте новый,
                             <br />

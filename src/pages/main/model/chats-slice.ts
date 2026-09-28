@@ -26,8 +26,8 @@ const chatsSlice = createSlice({
             if (!state.phones.includes(action.payload)) state.phones.push(action.payload);
             state.activePhone = action.payload;
         },
-        selectChat(state, action: PayloadAction<string>) {
-            if (state.phones.includes(action.payload)) state.activePhone = action.payload;
+        selectChat(state, action: PayloadAction<string | null>) {
+            if (action.payload === null || state.phones.includes(action.payload)) state.activePhone = action.payload;
         },
     },
     extraReducers: builder => {
