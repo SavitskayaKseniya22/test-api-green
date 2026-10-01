@@ -1,4 +1,4 @@
-# [WhatsApp Chat](https://test-api-green-theta.vercel.app/)
+# [Green Chat](https://test-api-green-theta.vercel.app/)
 
 A React app for sending and receiving WhatsApp text messages using GREEN-API.
 
